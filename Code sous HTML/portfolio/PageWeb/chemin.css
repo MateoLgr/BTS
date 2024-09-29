@@ -1,0 +1,11 @@
+body{
+background:url("./../Image/chemin.jpg") no-repeat;
+img {
+
+  height: auto;
+
+  max-width: 100%;
+
+}
+}
+

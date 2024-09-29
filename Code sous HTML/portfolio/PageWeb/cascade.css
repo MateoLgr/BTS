@@ -1,0 +1,10 @@
+body{
+background:url("./../Image/cascade.jpg") no-repeat;
+img {
+
+  height: auto;
+
+  max-width: 100%;
+
+}
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ma consomation</title>
+		<metacharset="utf8" />
+		<meta name = "auteur" content = "Mateo LEGRAND" />
+		<link rel="stylesheet" href="MaConso.css" /> 
+
+	</head>
+	
+	<body>
+
+		<div class="flotte">
+			<img src="image/compteur.gif" alt="Compteur de tour" width="76%">
+		</div>
+
+		<table>
+			<caption>Inputs :</caption>
+			<thead>
+			<tr>
+				<th> Insérez votre date</th>
+				<th> Insérez vos kilomètres</th>
+				<th> Insérez vos litres consommés</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td> <input type="date" id="date"> </td>
+					<td> <input type="number" id="km"> </td>
+					<td> <input type="number" id="litre"> </td>
+				</tr>
+			</tbody>
+			</thead>
+		</table>
+		<button id="boutton">
+			Appuyez pour enregistrer
+		</button>
+
+		<table width=100%>
+
+			<caption>"Ma consommation"</caption>
+
+			<thead>
+				<tr> 
+					<th>Date</th>
+					<th> Nombre de Km </th> 
+					<th> Nombre de litre dans le réservoir</th>
+			
+				
+			
+				</tr>
+			</thead>
+			<tbody id="tableValue">
+
+			</tbody>
+		</table>
+		<div id="result"></div>
+		<script src="MaConso.js"></script>
+	</body>	
+</html>	
+		
