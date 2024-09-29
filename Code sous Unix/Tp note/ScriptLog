@@ -1,0 +1,67 @@
+#!/bin/bash
+Réalisé part @Matéo
+para1=$1
+
+function pause {
+	echo "Appuyez sur ENTRER pour continuer"
+	read
+}
+
+function accesN {
+	echo "Voici le nombre d'accès non autorisés :"
+	grep "Failed password" $para1 | wc -l
+	pause
+}
+
+function accesA {
+	echo "Voici le nombre d'accès autorisés :"
+	grep "Accepted password" $para1 | wc -l
+	pause
+}
+
+function afficheN {
+	echo "Voici les différentes IP	qui ont essayé de ce connecter"
+	cat $para1 | grep "Failed password" | cut -d" " -f13 | sort -u 
+	echo "Voici le nombre de fois qu'ils ce sont connecter sans autorisation"
+	cat $para1 | grep "Failed password" | wc -l
+	pause
+}
+
+function afficheA {
+	echo "Voici les différentes IP qui ce sont connecter"
+	cat $para1 | grep "Accepted password" | cut -d" " -f11 | sort -u 
+	echo "Voici le nombre de fois qu'ils ce sont connecter avec autorisation"
+	cat $para1 | grep "Accepted password" | wc -l
+	pause
+}
+
+rep=1
+
+while [ "$rep" -eq 1 ]; 
+do 
+	clear
+	printf "menu : \n\n"
+	echo "1. Afficher le nombre d'accès non autorisés"
+	echo "2. Afficher le nombre d'accès autorisés"
+	echo "3. Afficher la liste des IPs qui ont essayé de se connecter sans autorisation et le nombre d'essais"
+	echo "4. Afficher la liste des IPs qui ont essayé de se connecter avec autorisation et le nombre de connections"
+	echo "5. Quitter \n"
+	read -r choix
+
+	case "$choix" in 
+		1)
+			accesN ;;
+		2)
+			accesA ;;
+		3)
+			afficheN ;;
+		4)
+			afficheA ;;
+		5)
+			echo "Au revoir"
+			pause
+			rep=0;; 
+
+	esac
+
+done
